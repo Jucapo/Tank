@@ -1,0 +1,18 @@
+<html>
+<script type="text/javascript" src="script.js"></script>
+
+<body>
+  <h3>Water Thank</h3>
+  <div class="glass">
+    <div *ngIf="flag == 2" class="waterHigh"></div>
+    <div *ngIf="flag == 1" class="water"></div>
+    <div *ngIf="flag == 0" class="waterLow"></div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-warning btn-space btn-lg" type="button" (click)="drain()">
+      <i class="fas fa-ban"></i>Drain
+    </button>
+  </div>
+</body>
+
+</html>

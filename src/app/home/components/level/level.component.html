@@ -1,0 +1,91 @@
+<div *ngIf="flag === true" class="card m-2">
+  
+  <div class="form-group row text-center">
+    <label for="cc" class=" col-sm-3 col-form-label">Level (Lts):</label>
+    <div class="col-sm-9">
+      <input disabled type="number" class=" mt-2 form-control text-center" name="manualLevel" id="manualLevel"
+        [(ngModel)]="utilitiesService.level">
+      <a class="mt-2 btn btn-success text-white" (click)="incLevel()">
+        <i class="fas fa-arrow-up"> Increased</i>
+      </a>
+      <a class="mt-2 ml-2 btn btn-danger text-white" (click)="decLevel()">
+        <i class="fas fa-arrow-down"> Decreased</i>
+      </a>
+    </div>
+  </div>
+
+  <form #setLevelForm="ngForm" (ngSubmit)="setLevelF(setLevelForm)">
+    <div class="form-group row text-center">
+      <label for="cc" class=" col-sm-3 col-form-label">Set Point (Lts):</label>
+      <div class="col-sm-9">
+
+        <input type="number" class="form-control text-center" name="setLevel" id="setLevel" #setLevel="ngModel"
+          [(ngModel)]="utilitiesService.setlevel">
+
+        <button class="mt-3 btn btn-danger text-white btn-lg " type="submit">
+          <i class="fas fa fa-sliders-h"> Set</i>
+        </button>
+
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<div class="card m-2">
+  <h2 class="text-center">Setup</h2>
+  <form #setupForm="ngForm" (ngSubmit)="update(false)">
+    <h4>Capacity</h4>
+    <div class="card">
+      <div class="form-group row text-center">
+        <label for="cc" class=" col-sm-3 col-form-label">Maximum:</label>
+        <div class="col-sm-9">
+          <input [disabled]="flag == true" type="number" class="form-control text-center" name="maximum" id="maximum"
+            #maximum="ngModel" [(ngModel)]="utilitiesService.maximum">
+        </div>
+      </div>
+
+      <div class="form-group row text-center">
+        <label for="cc" class=" col-sm-3 col-form-label">Minimum:</label>
+        <div class="col-sm-9">
+          <input [disabled]="flag == true" type="number" class="form-control text-center" name="minimum" id="minimum"
+            #minimum="ngModel" [(ngModel)]="utilitiesService.minimum">
+        </div>
+      </div>
+    </div>
+
+    <h4>Alarms</h4>
+    <div class="card">
+      <div class="form-group row text-center">
+        <label for="cc" class=" col-sm-3 col-form-label">High Level:</label>
+        <div class="col-sm-9">
+          <input [disabled]="flag == true" type="number" class="form-control text-center" name="highLevel" id="highLevel"
+            #highLevel="ngModel" [(ngModel)]="utilitiesService.highLevel">
+        </div>
+      </div>
+
+      <div class="form-group row text-center">
+        <label for="cc" class=" col-sm-3 col-form-label">Low Level:</label>
+        <div class="col-sm-9">
+          <input [disabled]="flag == true" type="number" class="form-control text-center" name="lowLevel" id="lowLevel"
+            #lowLevel="ngModel" [(ngModel)]="utilitiesService.lowLevel">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+
+      <button *ngIf="flag === true" class="btn btn-info btn-lg" type="submit">
+        <i class="fas fa fa-edit"></i> Edit
+      </button>
+      <button *ngIf="flag === false" class="btn btn-success btn-space btn-lg" type="button" (click)="setSetup(true, setupForm)">
+        <i class="fas fa-edit"></i> Confirm
+      </button>
+
+      <button *ngIf="flag === false" class="btn btn-warning btn-space btn-lg" type="button" (click)="cancel(true)">
+        <i class="fas fa-sync-alt"></i> Cancel
+      </button>
+
+    </div>
+  </form>
+</div>

@@ -10,15 +10,12 @@ import { ToastrModule } from 'ngx-toastr';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ChartComponent } from './home/components/chart/chart.component';
-import { LevelComponent } from './home/components/level/level.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChartComponent,
-    LevelComponent
   ],
   imports: [
     BrowserModule,

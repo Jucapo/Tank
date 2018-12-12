@@ -1,0 +1,22 @@
+.glass {
+    margin: 30px auto;
+    height: 500px;
+    width: 100px;
+    position: relative;
+    border-style: none solid solid solid;
+    border-width: 10px;
+    border-color: lightgray;
+    border-radius: 10px;
+}
+
+.water {
+    width: 100%;
+    background-color: rgb(17, 0, 255);
+    position: absolute;
+    bottom: 0;
+}
+
+.btn-space{
+    margin: 0 70px 0 70px;
+   }
+

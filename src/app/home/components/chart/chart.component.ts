@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtiliesService } from 'src/app/services/utilies.service';
 import { ToastrService } from 'ngx-toastr';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-chart',
@@ -9,29 +10,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ChartComponent implements OnInit {
 
-  high;
-  low;
-  level;
-  flag;
-
   constructor(
     public utilitiesService: UtiliesService,
     private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
-    this.level = this.utilitiesService.level;
-    this.low = this.utilitiesService.lowLevel;
-    this.high = this.utilitiesService.highLevel;
-    if (this.level < this.low) {
-      this.flag = 0;
-    }
-    if (this.level > this.low && this.level < this.high ) {
-      this.flag = 1;
-    }
-    if (this.level > this.high) {
-      this.flag = 2;
-    }
+    $(function () {
+      $('.water').animate({
+        height: '90%'
+      }, 5000);
+    });
   }
 
   drain() {

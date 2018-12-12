@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class UtiliesService {
 
 
-  level = 10;
+  level = 5;
   setlevel = 0;
-  maximum = 10;
+  maximum = 12;
   minimum = 1;
   lowLevel = 3;
   highLevel = 9;
